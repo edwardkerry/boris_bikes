@@ -1,5 +1,7 @@
 require_relative 'bike'
 
+DEFAULT_CAPACITY=20
+
 class DockingStation
 
   def initialize
@@ -23,7 +25,7 @@ class DockingStation
   private
 
   def full?
-    if @bikes.count >= 20
+    if @bikes.count >= DEFAULT_CAPACITY
       return true
     else
       return false
