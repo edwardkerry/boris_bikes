@@ -14,7 +14,13 @@ it 'can be reported broken' do
     expect(subject).to be_broken
   end
 
-
+#describe '#report_broken' do
+ #   it 'the bike is broken' do
+  #    bike = double(:bike, broken?: true)
+   #   bike.report_broken
+    #  expect(bike).to be_broken
+   # end
+ # end
    #it 'able to dock bikes' do
     #  expect(subject).to respond_to :dock
     #end
