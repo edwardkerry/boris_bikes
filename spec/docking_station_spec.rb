@@ -32,6 +32,23 @@ describe DockingStation do
     end
   end
 
+  describe '#report_broken' do
+    it 'the bike is broken' do
+      bikes = Bike.new
+      bikes.report_broken
+      expect(bikes).to be_broken
+    end
+  end
+
+  describe '#broken?' do
+    it'does not release if bike is broken' do
+      bikes = Bike.new
+      bikes.report_broken
+      subject.dock(bikes)
+      expect { subject.release_bike }.to raise_error 'The bike is broken'
+    end
+  end
+
   describe '#release_bike' do
     it 'raises an error when there are no bikes available' do
       expect { subject.release_bike }.to raise_error 'No bikes available'
@@ -43,6 +60,13 @@ describe DockingStation do
       subject.capacity.times { subject.dock Bike.new }
       expect { subject.dock Bike.new }.to raise_error 'Station is full'
     end
+
+ #   it 'reports a bike as broken if working? = false'
+  #    bikes = Bike.new
+   #   bikes.working? == false
+    #  subject.dock(bikes)
+     # expect(subject.dock bikes).to eq broken?
+
   end
 
   describe '#capacity' do

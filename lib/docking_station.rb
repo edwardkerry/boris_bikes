@@ -17,14 +17,13 @@ attr_accessor :capacity
 
   def release_bike
     fail 'No bikes available' if empty?
+    fail 'The bike is broken' if @bikes.last.broken?
     @bikes.pop
   end
 
   def bikes
     @bikes
   end
-
-
 
   private
 
